@@ -14,13 +14,13 @@ node index.js
 
 You will be presented with a menu of options to choose from:
 
-*View all departments
-*View all roles
-*View all employees
-*Add a department
-*Add a role
-*Add an employee
-*Update an employee role
+* View all departments
+* View all roles
+* View all employees
+* Add a department
+* Add a role
+* Add an employee
+* Update an employee role
 
 Choose the desired option by entering the corresponding number and follow the prompts.
 
