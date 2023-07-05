@@ -1,6 +1,5 @@
 const db = require("./config/connection");
 const inquirer = require("inquirer");
-
 db.connect( function (err) {
     if(err) throw err;
     startApp();
@@ -27,7 +26,10 @@ function startApp() {
         }else if (answer.choice == "Add Employee") {
             addEmployee()
         }else if (answer.choice =="Add Role"){
-    }       addRole()
+           addRole()
+        }else if (answer.choice =="Quit"){
+          exit = true;
+        }
 })
 }
 
@@ -82,6 +84,7 @@ function viewAllEmployees() {
 async function addDepartment() {
     inquirer.prompt([
       {
+        type:"input",
         message: "Enter the name of the new department:",
         name: "departmentName"
       }
@@ -111,10 +114,12 @@ async function addRole() {
 
     inquirer.prompt([
         {
+          type:"input",
             message: "What title?",
             name: "newTitle"
         },
         {
+          type:"input",
             message: "What salary?",
             name: "newSalary"
         },
