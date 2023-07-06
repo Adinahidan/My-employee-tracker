@@ -66,7 +66,7 @@ function viewAllRoles() {
 
 function viewAllEmployees() {
     const sqlString = 
-    `SELECT employees.id, employees.first_name, employees.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
+    `SELECT employees.id, employees.first_name, employees.last_name, role.title, department.name as department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
      FROM employees
      LEFT JOIN role ON employees.role_id = role.id
      LEFT JOIN department ON role.department_id = department.id
@@ -152,13 +152,18 @@ function loadManagers() {
   }
 
 async function addEmployee() {
-    const [rolesData, managersData] = await Promise.all([loadRoles(), loadManagers()]);
-  
+    const rolesData = await loadRoles();
+    const managersData = await loadManagers();
+      
     const roles = rolesData.map((role) => ({
       name: role.title,
+
       value: role.id
     }));
   
+    console.log(rolesData);
+    console.log(managersData);
+
     const managers = managersData.map((manager) => ({
       name: `${manager.first_name} ${manager.last_name}`,
       value: manager.id
@@ -166,10 +171,12 @@ async function addEmployee() {
   
     inquirer.prompt([
       {
+        type: "input",
         message: "Enter the first name of the new employee:",
         name: "firstName"
       },
       {
+        type: "input",
         message: "Enter the last name of the new employee:",
         name: "lastName"
       },
