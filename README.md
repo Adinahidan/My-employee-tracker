@@ -46,4 +46,5 @@ Selecting this option will prompt you to enter the employee's first name, last n
 Selecting this option will prompt you to select an employee to update and their new role. Once selected, the employee's role will be updated in the database.
 
 ## Contributing
+This application was done with the kind support from my tutor Andres Long.
 Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
