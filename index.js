@@ -12,7 +12,7 @@ function startApp() {
             message: "What would you like to do?",
             name: "choice",
             type: "list",
-            choices: ["View All Departments", "View All Roles", "View All Employees", "Add Department", "Add Employee", "Add role", "Quit"]
+            choices: ["View All Departments", "View All Roles", "View All Employees", "Add Department", "Add Employee", "Add Role", "Quit"]
         }
     ]).then(answer => {
         if(answer.choice == "View All Departments") {
